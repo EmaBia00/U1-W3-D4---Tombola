@@ -17,14 +17,14 @@ const changeCellBackg = (randomNum) => {
 const generateRandomNum = () => {
   let randomNum = 0;
   if (tmbPositions[0] === undefined) {
-    randomNum = Math.floor(Math.random() * 90);
+    randomNum = Math.ceil(Math.random() * 90);
     tmbPositions.push(randomNum);
     console.log("Primo numero", tmbPositions[0]);
   } else {
-    randomNum = Math.floor(Math.random() * 90);
+    randomNum = Math.ceil(Math.random() * 90);
     for (let i = 0; i < tmbPositions.length; i++) {
       if (tmbPositions[i] === randomNum) {
-        randomNum = Math.floor(Math.random() * 90);
+        randomNum = Math.ceil(Math.random() * 90);
         i = 0;
       }
     }
