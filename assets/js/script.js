@@ -24,14 +24,11 @@ const generateRandomNum = () => {
     randomNum = Math.floor(Math.random() * 90);
     for (let i = 0; i < tmbPositions.length; i++) {
       if (tmbPositions[i] === randomNum) {
-        console.log("Numero già uscito:", randomNum);
         randomNum = Math.floor(Math.random() * 90);
-        console.log("Nuovo numero cambiato:", randomNum);
         i = 0;
       }
     }
     tmbPositions.push(randomNum);
-    console.log("Nuovo numero:", randomNum);
   }
   return randomNum;
 };
