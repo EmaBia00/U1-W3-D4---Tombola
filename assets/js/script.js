@@ -15,7 +15,23 @@ const changeCellBackg = (randomNum) => {
 };
 
 const generateRandomNum = () => {
-  const randomNum = Math.floor(Math.random() * 90);
+  let randomNum = 0;
+  if (tmbPositions[0] === undefined) {
+    randomNum = Math.floor(Math.random() * 90);
+    tmbPositions.push(randomNum);
+    console.log("Primo numero", tmbPositions[0]);
+  } else {
+    randomNum = Math.floor(Math.random() * 90);
+    for (let i = 0; i < tmbPositions.length; i++) {
+      if (tmbPositions[i] === randomNum) {
+        console.log("Numero già uscito:", randomNum);
+        randomNum = Math.floor(Math.random() * 90);
+        console.log("Nuovo numero cambiato:", randomNum);
+      }
+    }
+    tmbPositions.push(randomNum);
+    console.log("Nuovo numero:", randomNum);
+  }
   return randomNum;
 };
 
@@ -23,7 +39,6 @@ const crateTable = (tmbNum) => {
   const tombola = document.getElementById("tombola");
 
   for (let i = 0; i < tmbNum; i++) {
-    tmbPositions.push([]);
     const tombCellDiv = document.createElement("div");
     tombCellDiv.className = "tmb";
 
@@ -35,8 +50,7 @@ const crateTable = (tmbNum) => {
   }
   const tmbButton = document.getElementById("button");
   tmbButton.onclick = () => {
-    const randomNum = generateRandomNum();
-    changeCellBackg(randomNum);
+    changeCellBackg(generateRandomNum());
   };
 };
 
