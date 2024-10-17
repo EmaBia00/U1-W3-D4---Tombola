@@ -27,6 +27,7 @@ const generateRandomNum = () => {
         console.log("Numero già uscito:", randomNum);
         randomNum = Math.floor(Math.random() * 90);
         console.log("Nuovo numero cambiato:", randomNum);
+        i = 0;
       }
     }
     tmbPositions.push(randomNum);
